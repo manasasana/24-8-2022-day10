@@ -24,7 +24,7 @@ select * from EmpSalary
 
 
 
-create or alter function bankinterest(@n int,@at varchar(29))
+create or alter function bankinterest(@at varchar(29))
 returns @AccInfo table 
 (Cid int,Amt float) as
 begin
@@ -33,7 +33,7 @@ begin
 
 if(@at='savings')
 begin
-update @AccInfo set Amt=Amt+((Amt*@n*(5/100))/100)
+update @AccInfo set Amt=Amt+((Amt*(5/100))/100)
 end
 return;
 end;
